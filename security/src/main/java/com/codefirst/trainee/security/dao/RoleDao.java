@@ -1,4 +1,5 @@
 package com.codefirst.trainee.security.dao;
+
 import com.codefirst.trainee.security.model.Rolec;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

@@ -1,9 +1,7 @@
 package com.codefirst.trainee.security.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -11,7 +9,7 @@ import java.util.Set;
 public class Userc {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
@@ -100,10 +98,10 @@ public class Userc {
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USERROLEC",
             joinColumns = {
-            @JoinColumn(name = "USERC_ID")
+                    @JoinColumn(name = "USERC_ID")
             },
             inverseJoinColumns = {
-            @JoinColumn(name = "ROLEC_ID") })
+                    @JoinColumn(name = "ROLEC_ID")})
     private Set<Rolec> rolecs;
 
 }

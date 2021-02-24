@@ -1,7 +1,7 @@
 package com.codefirst.trainee.security.model;
 
 public class UserDto {
-    
+
     private String username;
     private String password;
     private String email;
@@ -57,7 +57,7 @@ public class UserDto {
         this.businessTitle = businessTitle;
     }
 
-    public Userc getUserFromDto(){
+    public Userc getUserFromDto() {
         Userc userc = new Userc();
         userc.setUsername(username);
         userc.setPassword(password);
@@ -65,7 +65,7 @@ public class UserDto {
         userc.setPhone(phone);
         userc.setName(name);
         userc.setBusinessTitle(businessTitle);
-        
+
         return userc;
-    } 
+    }
 }

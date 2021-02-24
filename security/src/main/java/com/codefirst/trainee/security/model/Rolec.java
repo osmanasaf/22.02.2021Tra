@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Rolec {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     public long getId() {
@@ -37,4 +37,8 @@ public class Rolec {
 
     @Column
     private String description;
+
+    public Rolec(String name) {
+        this.name = name;
+    }
 }

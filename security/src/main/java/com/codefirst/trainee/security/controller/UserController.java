@@ -3,8 +3,8 @@ package com.codefirst.trainee.security.controller;
 import com.codefirst.trainee.security.config.TokenProvider;
 import com.codefirst.trainee.security.model.AuthToken;
 import com.codefirst.trainee.security.model.LoginUser;
-import com.codefirst.trainee.security.model.Userc;
 import com.codefirst.trainee.security.model.UserDto;
+import com.codefirst.trainee.security.model.Userc;
 import com.codefirst.trainee.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -47,15 +47,54 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public Userc saveUser(@RequestBody UserDto user) {
-        return userService.save(user);
+        return userService.saveUser(user);
     }
-
 
 
     @PreAuthorize("hasRole('USER')")
     @RequestMapping(value = "/userping", method = RequestMethod.GET)
     public String userPing() {
         return "Any User Can Read This";
+    }
+
+    @GetMapping("/protectedLinks")
+    public String getAnonymousPage() {
+        return "protectedLinks";
+    }
+
+    @GetMapping("/userPage")
+    public String getUserPage() {
+        return "userPage";
+    }
+
+    @GetMapping("/adminPage")
+    public String getAdminPage() {
+        return "adminPage";
+    }
+
+    @GetMapping("/loginAdmin")
+    public String getAdminLoginPage() {
+        return "src/main/webapp/WEB-INF/view/admin_login";
+    }
+
+    @GetMapping("/loginUser")
+    public String getUserLoginPage() {
+        return "src/main/webapp/WEB-INF/view/user_login";
+    }
+
+    @GetMapping("/loginOperator")
+    public String getOperatorLoginPage() {
+        return "src/main/webapp/WEB-INF/view/operator_login";
+    }
+
+    @GetMapping("/home")
+    public String getMainPage() {
+        return "Main";
+    }
+
+    @GetMapping("/403")
+    public String getAccessDeniedPage() {
+        return "403";
     }
 
 }
